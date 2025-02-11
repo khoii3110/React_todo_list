@@ -19,9 +19,27 @@ export default function ToDOList() {
     setTasks(updatedTask);
   }
 
-  function moveTaskUp() {}
+  function moveTaskUp(index) {
+    if (index > 0) {
+      const updatedTask = [...tasks];
+      [updatedTask[index], updatedTask[index - 1]] = [
+        updatedTask[index - 1],
+        updatedTask[index],
+      ];
+      setTasks(updatedTask);
+    }
+  }
 
-  function moveTaskDown() {}
+  function moveTaskDown(index) {
+    if (index < tasks.length - 1) {
+      const updatedTask = [...tasks];
+      [updatedTask[index], updatedTask[index + 1]] = [
+        updatedTask[index + 1],
+        updatedTask[index],
+      ];
+      setTasks(updatedTask);
+    }
+  }
 
   return (
     <div className="todo-list">
